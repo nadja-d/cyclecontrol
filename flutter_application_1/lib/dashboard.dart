@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+// Import for Android features.
+import 'package:webview_flutter_android/webview_flutter_android.dart';
+// Import for iOS features.
+import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
-class dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
+  const Dashboard({super.key});
+
+  @override
+  _DashboardState createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,26 +26,15 @@ class dashboard extends StatelessWidget {
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey),
           ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: AspectRatio(
-              aspectRatio: 16 / 9,
-              child: WebView(
-                initialUrl:
-                    'https://lookerstudio.google.com/embed/reporting/5945c858-859d-4b56-bebf-dc45d2204c34/page/yanuD',
-                javascriptMode: JavascriptMode.unrestricted,
-                gestureNavigationEnabled: true,
-              ),
-            ),
-          ),
+          child: Text("Halo")
         ),
       ),
     );
   }
 }
 
-void main() {
-  runApp(MaterialApp(
-    home: dashboard(),
-  ));
-}
+// void main() {
+//   runApp(MaterialApp(
+//     home: dashboard(),
+//   ));
+// }

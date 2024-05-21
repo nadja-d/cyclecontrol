@@ -62,23 +62,41 @@
 // }
 
 import 'package:flutter/material.dart';
-import 'login.dart'; // Import login.dart
+import 'package:flutter_application_1/LoginPage.dart';
 
-void main() {
-  runApp(MyApp());
+// void main() {
+//   runApp(MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: LandingPage(),
+//     );
+//   }
+// }
+
+class LandingPage extends StatefulWidget {
+  const LandingPage({super.key});
+
+  @override
+  _LandingPageState createState() => _LandingPageState();
 }
 
-class MyApp extends StatelessWidget {
+class _LandingPageState extends State<LandingPage> {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: LandingPage(),
-    );
+  void initState() {
+    super.initState();
+    // Auto navigate to login page after 2.5 seconds
+    Future.delayed(Duration(seconds: 2, milliseconds: 500), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => LoginPage()),
+      );
+    });
   }
-}
 
-class LandingPage extends StatelessWidget {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -107,22 +125,22 @@ class LandingPage extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  // Navigate to the login page
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => login()),
-                  );
-                },
-                child: Text('Get Started'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                  textStyle: TextStyle(fontSize: 18, color: Colors.white),
-                ),
-              ),
+              // SizedBox(height: 20),
+              // ElevatedButton(
+              //   onPressed: () {
+              //     // Navigate to the login page
+              //     Navigator.push(
+              //       context,
+              //       MaterialPageRoute(builder: (context) => login()),
+              //     );
+              //   },
+              //   child: Text('Get Started'),
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor: Colors.white,
+              //     padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+              //     textStyle: TextStyle(fontSize: 18, color: Colors.white),
+              //   ),
+              // ),
             ],
           ),
         ),
